@@ -1,0 +1,25 @@
+# Versions pinned to what this project was built and tested against.
+# Install with:  pip install -r requirements.txt
+
+# --- MCP protocol layer -------------------------------------------------
+fastmcp==3.4.7            # @mcp.tool server, MCP Client, stdio/in-memory transports
+
+# --- Agent layer --------------------------------------------------------
+google-genai==2.19.0      # Gemini SDK; function calling drives the ReAct loop
+
+# --- Interfaces ---------------------------------------------------------
+fastapi==0.141.1          # REST bridge consumed by the React frontend
+uvicorn[standard]==0.52.4
+rich==15.0.0              # CLI trace rendering
+typer==0.27.1             # CLI argument parsing
+
+# --- Shared -------------------------------------------------------------
+pydantic==2.13.4          # tool-argument validation (used by FastMCP)
+python-dotenv==1.2.3
+sqlglot==30.17.0          # SQL parsing for the read-only guard
+
+# --- Dev ----------------------------------------------------------------
+pytest==9.1.1
+pytest-asyncio==1.4.0
+reportlab==5.0.1          # builds docs/report.pdf
+openpyxl==3.1.5           # scripts/export_excel.py dumps the DB to a workbook

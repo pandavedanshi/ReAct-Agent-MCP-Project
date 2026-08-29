@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcp-db-agent"
+version = "1.0.0"
+description = "MCP-enabled natural-language database query agent (ReAct + FastMCP + SQLite)"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=3.4",
+    "google-genai>=1.60",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "rich>=13.9",
+    "typer>=0.15",
+    "pydantic>=2.10",
+    "python-dotenv>=1.0",
+    "sqlglot>=25",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24", "reportlab>=4.2"]
+
+[project.scripts]
+dbagent = "mcp_db_agent.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
